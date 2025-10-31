@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cl.dao.DianzhangDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cl.entity.DianzhangEntity" id="dianzhangMap">
+        <result property="dianzhangzhanghao" column="dianzhangzhanghao"/>
+        <result property="mima" column="mima"/>
+        <result property="dianpumingcheng" column="dianpumingcheng"/>
+        <result property="lianxidianhua" column="lianxidianhua"/>
+        <result property="dianpudizhi" column="dianpudizhi"/>
+        <result property="lianxiren" column="lianxiren"/>
+        <result property="sfsh" column="sfsh"/>
+        <result property="shhf" column="shhf"/>
+    </resultMap>
+
+    <select id="selectListView"
+		resultType="com.cl.entity.view.DianzhangView" >
+
+		SELECT  dianzhang.* FROM dianzhang  dianzhang 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.cl.entity.view.DianzhangView" >
+		SELECT * FROM dianzhang  dianzhang <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+
+
+</mapper>
